@@ -33,7 +33,7 @@
         </div><!-- /.rightcrumb -->
       </div><!-- /#crumbs -->
       <div class='col side' data-swiftype-index='false'>
-        <div id='st-results-container'></div>
+        <!--<div id='st-results-container'></div>
         <script type='text/javascript'>
           //<![CDATA[
           var Swiftype = window.Swiftype || {};
@@ -52,11 +52,28 @@
             entry.parentNode.insertBefore(script, entry);
           }());
           //]]>
-        </script>
+        </script>-->
         <div class='menu'>
-          <form id='search_form'>
+          <!--<form id='search_form'>
             <input class='st-search-input' id='st-search-input' placeholder='Search the Documentation' type='text' />
+          </form>-->
+
+          <style>
+            td.gsc-search-button {
+              display: none;
+            }
+            table.gsc-search-box td {
+              border: 0px solid #E5E5E5;
+            }
+            td.gsc-input {
+              padding: 20px 0 0 0;
+            }
+          </style>
+
+          <form id="search_form" method="get" action="http://localhost:4000/search-results/">
+            <input placeholder="Search the Documentation" name="q" type="text" style="outline: none; padding: 5px; width: 100%;">
           </form>
+
           <ul>
             {% if page.portal == "developer" %}
               {% include _sidebar_developer.html %}
@@ -69,7 +86,9 @@
         </div><!-- /.menu -->
       </div><!-- /.col.side -->
       <div class='col' data-swiftype-index='true'>
+
         {{ content }}
+
       </div><!-- /.col -->
     </div><!-- /#wrapper -->
 
